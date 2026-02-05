@@ -8,6 +8,10 @@ venv/
 env/
 ENV/
 
+# uv
+.venv/
+.python-version
+
 # IDE
 .vscode/
 .idea/

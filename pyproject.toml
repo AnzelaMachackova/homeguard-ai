@@ -1,0 +1,9 @@
+[project]
+name = "homeguard-ai"
+version = "0.1.0"
+description = "Homeguard AI - app for home automation and knowledge base"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.128.1",
+    "uvicorn>=0.40.0",
+]
