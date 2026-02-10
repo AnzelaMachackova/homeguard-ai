@@ -11,10 +11,8 @@ class DeviceQuery(BaseModel):
 
 
 HOME_KNOWLEDGE = {
-    "flowers": "Flowers are watered once a week, preferably on Monday morning.",
-    "bathroom": "The bathroom is cleaned 3 times a week (Monday, Wednesday, Friday).",
-    "books": "The books on shelf A were brought from Barcelona in 2022.",
-    "wifi": "The password for the guest wifi is 'hellopassword1234'.",
+    "kaktus": "Kaktus zaléváme jednou týdně, obvykle v pondělí.",
+    "monstera": "Monstera potřebuje hodně světla, takže ho umístěte blízko okna.",
 }
 
 
@@ -31,23 +29,57 @@ def read_root():
     return {"status": "Homeguard API is running"}
 
 
+# @app.post("/webhook")
+# async def handle_webhook(request: Request):
+#     payload = await request.json()
+#     print(f"data: {payload}")
+
+#     query_text = ""
+#     if "queryResult" in payload:
+#         query_text = payload["queryResult"].get("queryText", "")
+#     elif "query" in payload:
+#         query_text = payload["query"]
+
+#     print(f"request: {query_text}")
+
+#     answer = search_knowledge(query_text)
+#     print(f"Answer: {answer}")
+
+#     response = {"fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}}
+#     print(f"response: {response}")
+
+#     return response
+
+
 @app.post("/webhook")
 async def handle_webhook(request: Request):
-    payload = await request.json()
-    print(f"data: {payload}")
+    try:
+        payload = await request.json()
 
-    query_text = ""
-    if "queryResult" in payload:
-        query_text = payload["queryResult"].get("queryText", "")
-    elif "query" in payload:
-        query_text = payload["query"]
+        intent_info = payload.get("intentInfo", {})
+        parameters = intent_info.get("parameters", {})
 
-    print(f"request: {query_text}")
+        rostlina_param = parameters.get("rostlina", {})
+        hodnota = rostlina_param.get("resolvedValue")
 
-    answer = search_knowledge(query_text)
-    print(f"Answer: {answer}")
+        if isinstance(hodnota, list) and len(hodnota) > 0:
+            identifikovana_rostlina = str(hodnota[0])
+        else:
+            identifikovana_rostlina = str(hodnota) if hodnota else ""
 
-    response = {"fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}}
-    print(f"response: {response}")
+        if identifikovana_rostlina:
+            answer = HOME_KNOWLEDGE.get(
+                identifikovana_rostlina, "O této rostlině nic nevím."
+            )
+        else:
+            answer = "Nerozumím, o jaké rostlině mluvíme."
 
-    return response
+        return {"fulfillment_response": {"messages": [{"text": {"text": [answer]}}]}}
+
+    except Exception as e:
+        print(f"Chyba v kódu: {e}")
+        return {
+            "fulfillment_response": {
+                "messages": [{"text": {"text": ["Upsík, v mém kódu se něco rozbilo."]}}]
+            }
+        }
