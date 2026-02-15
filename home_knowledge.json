@@ -1,0 +1,26 @@
+{
+  "rostliny": {
+    "kaktus": "Kaktus zaléváme jednou týdně, obvykle v pondělí. Nesnáší přemokření.",
+    "monstera": "Monstera potřebuje hodně světla, takže ji umístěte blízko okna. Zalévejte 2x týdně.",
+    "fíkus": "Fíkus vyžaduje pravidelnou zálivku a dostatek světla. Růst podpoříte postřikem listů."
+  },
+  "spotřebiče": {
+    "lednice": "Lednice by měla být nastavena na 4°C. Pravidelně kontrolujte těsnění dveří.",
+    "pračka": "Pračku čistěte jednou měsíčně prázdným cyklem na 90°C s octem.",
+    "myčka": "Myčku čistěte každý měsíc, kontrolujte filtr a doplňujte regenerační sůl.",
+    "trouba": "Troubu čistěte po každém použití, jednou měsíčně důkladně pyrolýzou nebo čistícím prostředkem."
+  },
+  "zvířata": {
+    "pes": "Pejsci potřebují pravidelné venčení 2-3x denně a čerstvou vodu. Když se vrátíte domů, dejte mu pamlsek a pohlaďte ho. Nezapomeňte mu dát dostatek pozornosti a lásky. Pokud jim bude špatně, zavezte je k veterináři.",
+    "kočka": "Kočky potřebují čistou toaletu, měňte ji denně. Krmte 2x denně. Nechte jim volný přístup k vodě a hračkám. Nezapomeňte jim věnovat pozornost a mazlení. Pokud se jim něco stane, vezměte je k veterináři.",
+    "akvárium": "Vodu v akváriu měňte týdně z 25%, kontrolujte filtry a teplotu. Pokud se jim něco stane, vezměte je k veterináři."
+  },
+  "údržba": {
+    "vysavač": "Vysavač vyprazdňujte po každém použití, filtry čistěte měsíčně.",
+    "odpad": "Tříděný odpad vynášejte pravidelně. Bioodpad kompostujte.",
+    "větrání": "Větrejte 3x denně po 10-15 minutách pro správnou výměnu vzduchu.",
+    "okna": "Okna myjte 2x ročně, kontrolujte těsnění a promazávejte kování.",
+    "vytápění": "Optimální teplota pro vytápění je 20-22°C. Radiátory odvzdušněte na začátku sezóny.",
+    "wifi": "WiFi router je v pracovně, heslo je 'homeguard123'."
+  }
+}
